@@ -111,8 +111,9 @@ pipeline {
           '''
         }
       }
-    }
-    post { // send email when the job has failed
+    }    
+  }
+  post { // send email when the job has failed
         failure {
             echo "This will run if the job failed :)"
             mail to: "gch4rles@gmail.com",
@@ -120,5 +121,4 @@ pipeline {
                 body: "For more info on the pipeline failure, check out the console output at ${env.BUILD_URL}"
         }
     }
-  }
 }
